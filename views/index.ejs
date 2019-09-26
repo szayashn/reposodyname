@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Group Chat on Node.js</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 13px Helvetica, Arial;
+    }
+
+    form {
+      background: #fff;
+      padding: 3px;
+      bottom: 0;
+      width: 100%;
+      border-color: #000;
+      border-top-style: solid;
+      border-top-width: 1px;
+    }
+
+    form input {
+      border-style: solid;
+      border-width: 1px;
+      padding: 10px;
+      width: 80%;
+      margin-right: .5%;
+    }
+
+    form button {
+      width: 15%;
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 10px;
+      margin-left: 2%;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      height: 100px;
+      overflow: auto;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+
+    .bet_area {}
+
+    .chat {
+      display: inline-block;
+      width: 400px;
+      height: 400px;
+      vertical-align: top;
+    }
+
+    .bets {
+      display: inline-block;
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+    }
+
+    .race_result {
+      display: inline-block;
+    }
+
+    .row {
+      display: block;
+    }
+  </style>
+  <script src="../../socket.io/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+
+<body>
+  <div class="bet_area">
+    <div class="chat">
+      <ul id="messages"></ul>
+      <form action="/" method="POST" id="chatForm">
+        <input id="txt" autocomplete="off" autofocus="on"
+          placeholder="type your message here..." /><button>Send</button>
+      </form>
+    </div>
+    <div class="bets">
+      <form action="/" id="bet_form">
+        <div class="row">
+          <span>You have: </span><input type="number" disabled class="available_money" id="bet_current_funds"
+            value="100">$
+        </div>
+        <div class="row">
+          <span>Bet amount</span>
+          <input type="number" id="bet_amount">
+        </div>
+        <div class="row">
+          <span>Choose horses</span>
+          <select id="bet_horse">
+            <option value="horse_1">Horse 1</option>
+            <option value="horse_2">Horse 2</option>
+            <option value="horse_3">Horse 3</option>
+            <option value="horse_4">Horse 4</option>
+          </select>
+          <div class="row">
+            <button>Make a bet</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div class="race_result">
+    <table id="race_table">
+      <thead>
+        <tr>
+          <td>Users/Horses</td>
+          <td>Horse 1</td>
+          <td>Horse 2</td>
+          <td>Horse 3</td>
+          <td>Horse 4</td>
+        </tr>
+      </thead>
+      <tbody id="odds">
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <script>
+    var socket = io();
+
+    // submit text message without reload/refresh the page
+    $('#chatForm').submit(function (e) {
+      if ($('#txt').val()) {
+        e.preventDefault(); // prevents page reloading
+        socket.emit('chat_message', $('#txt').val());
+        $('#txt').val('');
+      }
+      return false;
+    });
+    //make a bet
+    $('#bet_form').submit(function (e) {
+      e.preventDefault();
+      let selected_horse = $('#bet_horse').val();
+      let bet_amount = $('#bet_amount').val();
+      let current_fund = $('#bet_current_funds').val();
+      if (parseInt(bet_amount) <= parseInt(current_fund)) {
+        socket.emit('incoming_bet', {bet_amount: bet_amount, selected_horse:selected_horse });
+        $('#bet_current_funds').attr('value', current_fund - bet_amount );
+        $('#bet_amount').val('')
+      }
+      return false;
+    });
+
+    // append the chat text message
+    socket.on('chat_message', function (msg) {
+      $('#messages').append($('<li>').html(msg));
+
+    });
+
+    // append text if someone is online
+    socket.on('is_online', function (data) {
+      $('#messages').append($('<li>').html('🔵 <i>' + data.user_name + ' join the chat..</i>'));
+      makeTable(data.all_users);
+    });
+    socket.on('is_left', function (data) {
+      $('#messages').append($('<li>').html('🔴 <i>' + data.user_name + ' left the chat..</i>'));
+      makeTable(data.all_users);
+    });
+    socket.on('change_bet_table', function (data) {
+      makeTable(data);
+    });
+    // ask username
+    var username = prompt('Please tell me your name');
+    socket.emit('username', username);
+
+    function makeTable(all_users) {
+      let total = [0, 0, 0, 0];
+      $('#race_table tbody').empty();
+      for (let user of all_users) {
+        $('#odds').append($('<tr>').html('<td>' + user.name + '</td><td>' + user.horse_1 + '</td><td>' + user.horse_2 + '</td><td>' + user.horse_3 + '</td><td>' + user.horse_4 + '</td>'));
+      }
+    }
+    socket.on('test', function (data) {
+     console.log(data);
+    });
+  </script>
+</body>
+
+</html>
