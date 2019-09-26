@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font: 13px Helvetica, Arial;
+  }
+
+  form {
+    background: #fff;
+    padding: 3px;
+    bottom: 0;
+    width: 100%;
+    border-color: #000;
+    border-top-style: solid;
+    border-top-width: 1px;
+  }
+
+  form input {
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    width: 80%;
+    margin-right: .5%;
+  }
+
+  form button {
+    width: 15%;
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+    margin-left: 2%;
+  }
+
+  #messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    overflow: auto;
+  }
+
+  #messages li {
+    padding: 5px 10px;
+  }
+
+  #messages li:nth-child(odd) {
+    background: #eee;
+  }
+
+  .bet_area {}
+
+  .chat {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    vertical-align: top;
+  }
+
+  .bets {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+  }
+
+  .race_result {
+    display: inline-block;
+  }
+
+  .row {
+    display: block;
+  }
+
+  .ninja {
+    position: absolute;
+    width: 59px;
+    height: 86px;
+  }
+
+  .right1 {
+    background-image: url('./img/right1.png');
+  }
+
+  .right2 {
+    background-image: url('./img/right2.png');
+  }
+
+  .top1 {
+    background-image: url('./img/top1.png');
+  }
+
+  .top2 {
+    background-image: url('./img/top2.png');
+  }
+
+  .left1 {
+    background-image: url('./img/left1.png');
+  }
+
+  .left2 {
+    background-image: url('./img/left2.png');
+  }
+
+  .down1 {
+    background-image: url('./img/down1.png');
+  }
+
+  .down2 {
+    background-image: url('./img/down2.png');
+  }
