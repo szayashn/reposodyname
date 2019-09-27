@@ -20,7 +20,7 @@ input {
 button {
   display: inline-block;
   margin: 3px;
-  width: 100%;
+  width: 98%;
   padding: 3px 7px;
   font-size: 10px;
   cursor: pointer;
@@ -41,13 +41,18 @@ button:active {
   transform: translateY(4px);
 }
 select{
-  height: 25px;
+  height: 30px;
+  width: 90%;
+  margin-bottom: 35%;
+  margin-left: 4px;
+  margin-top: 4px;
+  text-align: center;
 }
 #messages {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  height: 100px;
+  height: 75%;
   overflow: auto;
 }
 
@@ -61,37 +66,37 @@ select{
 
 .bet_area {
   display: inline-block;
+  position: absolute;
   background-image: linear-gradient(white, lightgrey);
-  width: 40%;
-  height: 30%;
-  padding: 10px;
-  margin-left: 24%;
-  margin-top: 18%;
+  width: 48vw;
+  height: 29vh;
+  padding: 5px;
+  margin-left: 26%;
+  margin-top: 16%;
   border-radius: 15px;
 }
 
 .chat {
   display: inline-block;
-  width: 20%;
-  height: 100%;
-  padding: 10px;
-  vertical-align: center;
+  width: 31%;
+  height: 95%;
+  margin-left: 1%;
+  vertical-align: top;
   background-image: linear-gradient(white, lightgrey);
 }
 
 .bets {
   display: inline-block;
-  width: 20%;
-  height: 100%;
+  width: 15%;
+  height: 95%;
   margin: 1%;
-  padding: 10px;
-  vertical-align: center;
+  vertical-align: top;
 }
 
 .race_result {
   display: inline-block;
-  width: 35%;
-  height: 100%;
+  width: 48%;
+  height: 90%;
   margin: 1%;
   vertical-align: top;
   overflow: scroll;
@@ -155,7 +160,7 @@ width: 100%;
 
 #race_table td, #race_table th {
 border: 1px solid #ddd;
-padding: 8px;
+padding: 3px;
 }
 
 #race_table tr:nth-child(even){background-color: #f2f2f2;}
@@ -163,8 +168,8 @@ padding: 8px;
 #race_table tr:hover {background-color: #ddd;}
 
 #race_table th {
-padding-top: 12px;
-padding-bottom: 12px;
+padding-top: 8px;
+padding-bottom: 8px;
 text-align: left;
 background-color: #4CAF50;
 color: white;
