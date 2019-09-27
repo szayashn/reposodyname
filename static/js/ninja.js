@@ -23,7 +23,7 @@ function Ninja(id, x, y) {
           ninja.changeImage = true;
           ninja.element.className = 'ninja right2';
         }
-        if (ninja.y < (80 + ninja.number * 1.8)) {
+        if (ninja.y < 75) {
           ninja.moveRight();
         }
         else {
@@ -39,8 +39,16 @@ function Ninja(id, x, y) {
       let ninja = this;
 
       setTimeout(function () {
-        ninja.x--;
+        ninja.x --;
+        if (ninja.x  > 35){
+            ninja.y += 0.2;
+        }
+        else {
+            ninja.y -= 0.2;
+        }
+        
         ninja.element.style.top = ninja.x + 'vh';
+        ninja.element.style.left = ninja.y + 'vw';
 
         if (ninja.changeImage) {
           ninja.changeImage = false;
@@ -50,7 +58,7 @@ function Ninja(id, x, y) {
           ninja.changeImage = true;
           ninja.element.className = 'ninja top2';
         }
-        if (ninja.x > (10 - ninja.number * 1.8)) {
+        if (ninja.x > 10) {
           ninja.moveUp();
         }
         else {
@@ -78,7 +86,7 @@ function Ninja(id, x, y) {
           ninja.changeImage = true;
           ninja.element.className = 'ninja left2';
         }
-        if (ninja.y > (10 - ninja.number * 1.8)) {
+        if (ninja.y > 23) {
           ninja.moveLeft();
         }
         else {
@@ -94,8 +102,18 @@ function Ninja(id, x, y) {
       let ninja = this;
 
       setTimeout(function () {
-        ninja.x++;
+        ninja.x ++;
+        if (ninja.x  < 40){
+            ninja.y -= 0.3;
+        }
+        else {
+            ninja.y += 0.3;
+        }
+        
         ninja.element.style.top = ninja.x + 'vh';
+        ninja.element.style.left = ninja.y + 'vw';
+        // ninja.x++;
+        // ninja.element.style.top = ninja.x + 'vh';
 
         if (ninja.changeImage) {
           ninja.changeImage = false;
@@ -105,7 +123,7 @@ function Ninja(id, x, y) {
           ninja.changeImage = true;
           ninja.element.className = 'ninja down2';
         }
-        if (ninja.x < (80 + ninja.number * 1.8)) {
+        if (ninja.x < (68 + ninja.number * 1.8)) {
           ninja.moveDown();
         }
         else {

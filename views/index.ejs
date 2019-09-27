@@ -4,7 +4,7 @@
 <head>
   <title>Simple Group Chat on Node.js</title>
   <style>
-    
+
   </style>
   <link rel="stylesheet" href="./style.css">
   <script src="./js/ninja.js"></script>
@@ -13,64 +13,65 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="backgroundIMG">
-      <div id="ninjas">
-        <div id="ninja1" class="ninja right1"></div>
-        <div id="ninja2" class="ninja right1"></div>
-        <div id="ninja3" class="ninja right1"></div>
-        <div id="ninja4" class="ninja right1"></div>
+  <div class="wall">
+    <div class="container">
+      <div class="backgroundIMG">
+        <div id="ninjas">
+          <div id="ninja1" class="ninja right1"></div>
+          <div id="ninja2" class="ninja right1"></div>
+          <div id="ninja3" class="ninja right1"></div>
+          <div id="ninja4" class="ninja right1"></div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="bet_area">
-    <div class="chat">
-      <ul id="messages"></ul>
-      <form action="/" method="POST" id="chatForm">
-        <input id="txt" autocomplete="off" autofocus="on"
-          placeholder="type your message here..." /><button>Send</button>
-      </form>
-    </div>
-    <div class="bets">
-      <form action="/" id="bet_form">
-        <div class="row">
-          <span>You have: </span><input type="number" disabled class="available_money" id="bet_current_funds"
-            value="100">$
-        </div>
-        <div class="row">
-          <span>Bet amount</span>
-          <input type="number" id="bet_amount">
-        </div>
-        <div class="row">
-          <span>Choose horses</span>
-          <select id="bet_horse">
-            <option value="horse_1">Horse 1</option>
-            <option value="horse_2">Horse 2</option>
-            <option value="horse_3">Horse 3</option>
-            <option value="horse_4">Horse 4</option>
-          </select>
+    <div class="bet_area">
+      <div class="chat">
+        <ul id="messages"></ul>
+        <form action="/" method="POST" id="chatForm">
+          <input id="txt" autocomplete="off" autofocus="on"
+            placeholder="type your message here..." /><button>Send</button>
+        </form>
+      </div>
+      <div class="bets">
+        <form action="/" id="bet_form">
           <div class="row">
-            <button>Make a bet</button>
+            <span>Money:</span><input type="number" disabled class="available_money" id="bet_current_funds" value="100">
           </div>
-      </form>
+          <div class="row">
+            <span>Bet amount:</span>
+            <input type="number" id="bet_amount">
+          </div>
+          <div class="row">
+            <span>Choose Ninja:</span>
+            <select id="bet_horse">
+              <option value="horse_1">Ninja 1</option>
+              <option value="horse_2">Ninja 2</option>
+              <option value="horse_3">Ninja 3</option>
+              <option value="horse_4">Ninja 4</option>
+            </select>
+            <div class="row">
+              <button>Make a bet</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <div class="race_result">
+      <table id="race_table">
+        <thead>
+          <tr>
+            <td>Player</td>
+            <td>Ninja 1</td>
+            <td>Ninja 2</td>
+            <td>Ninja 3</td>
+            <td>Ninja 4</td>
+          </tr>
+        </thead>
+        <tbody id="odds">
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="race_result">
-    <table id="race_table">
-      <thead>
-        <tr>
-          <td>Users/Horses</td>
-          <td>Horse 1</td>
-          <td>Horse 2</td>
-          <td>Horse 3</td>
-          <td>Horse 4</td>
-        </tr>
-      </thead>
-      <tbody id="odds">
-      </tbody>
-    </table>
-  </div>
-  </div>
+
   <script>
     var socket = io();
 
@@ -129,12 +130,12 @@
     socket.on('test', function (data) {
       console.log(data);
     });
-    
+
     //CREATE NINJAS
-    let n = new Ninja('ninja1', 75, 1);
-    let n2 = new Ninja('ninja2', 80, 1);
-    let n3 = new Ninja('ninja3', 85, 1);
-    let n4 = new Ninja('ninja4', 90, 1);
+    let n = new Ninja('ninja1', 68, 27);
+    let n2 = new Ninja('ninja2', 71, 30);
+    let n3 = new Ninja('ninja3', 73, 33);
+    let n4 = new Ninja('ninja4', 75, 36);
     // MAKE THEM RUN!111111
     n.run();
     n2.run();
