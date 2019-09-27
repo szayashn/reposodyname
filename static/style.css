@@ -43,7 +43,7 @@ button:active {
 select{
   height: 30px;
   width: 90%;
-  margin-bottom: 35%;
+  margin-bottom: 43px;
   margin-left: 4px;
   margin-top: 4px;
   text-align: center;
@@ -88,7 +88,7 @@ select{
 .bets {
   display: inline-block;
   width: 15%;
-  height: 95%;
+  height: 28vh;
   margin: 1%;
   vertical-align: top;
 }
