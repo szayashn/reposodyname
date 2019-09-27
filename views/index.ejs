@@ -18,10 +18,10 @@
     <div class="container">
       <div class="backgroundIMG">
         <div id="ninjas">
-          <div id="ninja1" class="ninja right1"></div>
-          <div id="ninja2" class="ninja right1"></div>
-          <div id="ninja3" class="ninja right1"></div>
-          <div id="ninja4" class="ninja right1"></div>
+          <div id="ninja1" class="ninja right1_yellow"></div>
+          <div id="ninja2" class="ninja right1_blue"></div>
+          <div id="ninja3" class="ninja right1_green"></div>
+          <div id="ninja4" class="ninja right1_red"></div>
         </div>
       </div>
     </div>
@@ -133,10 +133,10 @@
     });
 
     //CREATE NINJAS
-    let n = new Ninja('ninja1', 68, 27);
-    let n2 = new Ninja('ninja2', 71, 30);
-    let n3 = new Ninja('ninja3', 73, 33);
-    let n4 = new Ninja('ninja4', 75, 36);
+    let n = new Ninja('ninja1', 68, 27,'yellow');
+    let n2 = new Ninja('ninja2', 71, 30, 'blue');
+    let n3 = new Ninja('ninja3', 73, 33, 'green');
+    let n4 = new Ninja('ninja4', 75, 36, 'red');
     // MAKE THEM RUN!111111
     socket.on('setTheSpeed', function (data) {
       n.speed = data.ninjas.n;

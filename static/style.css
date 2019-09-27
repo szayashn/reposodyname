@@ -112,37 +112,133 @@ select{
   width: 59px;
   height: 86px;
 }
-
-.right1 {
-  background-image: url('./img/right1.png');
+/* green */
+.right1_green {
+  background-image: url('./img/right1 green.png');
 }
 
-.right2 {
-  background-image: url('./img/right2.png');
+.right2_green  {
+  background-image: url('./img/right2 green.png');
 }
 
-.top1 {
-  background-image: url('./img/top1.png');
+.top1_green  {
+  background-image: url('./img/top1 green.png');
 }
 
-.top2 {
-  background-image: url('./img/top2.png');
+.top2_green  {
+  background-image: url('./img/top2 green.png');
 }
 
-.left1 {
-  background-image: url('./img/left1.png');
+.left1_green  {
+  background-image: url('./img/left1 green.png');
 }
 
-.left2 {
-  background-image: url('./img/left2.png');
+.left2_green  {
+  background-image: url('./img/left2 green.png');
 }
 
-.down1 {
-  background-image: url('./img/down1.png');
+.down1_green  {
+  background-image: url('./img/down1 green.png');
 }
 
-.down2 {
-  background-image: url('./img/down2.png');
+.down2_green  {
+  background-image: url('./img/down2 green.png');
+}
+/* red */
+.right1_red {
+  background-image: url('./img/right1 red.png');
+}
+
+.right2_red  {
+  background-image: url('./img/right2 red.png');
+}
+
+.top1_red  {
+  background-image: url('./img/top1 red.png');
+}
+
+.top2_red  {
+  background-image: url('./img/top2 red.png');
+}
+
+.left1_red  {
+  background-image: url('./img/left1 red.png');
+}
+
+.left2_red  {
+  background-image: url('./img/left2 red.png');
+}
+
+.down1_red  {
+  background-image: url('./img/down1 red.png');
+}
+
+.down2_red  {
+  background-image: url('./img/down2 red.png');
+}
+/* blue */
+.right1_blue {
+  background-image: url('./img/right1 blue.png');
+}
+
+.right2_blue  {
+  background-image: url('./img/right2 blue.png');
+}
+
+.top1_blue  {
+  background-image: url('./img/top1 blue.png');
+}
+
+.top2_blue  {
+  background-image: url('./img/top2 blue.png');
+}
+
+.left1_blue  {
+  background-image: url('./img/left1 blue.png');
+}
+
+.left2_blue  {
+  background-image: url('./img/left2 blue.png');
+}
+
+.down1_blue  {
+  background-image: url('./img/down1 blue.png');
+}
+
+.down2_blue  {
+  background-image: url('./img/down2 blue.png');
+}
+/* yellow */
+.right1_yellow {
+  background-image: url('./img/right1 yellow.png');
+}
+
+.right2_yellow  {
+  background-image: url('./img/right2 yellow.png');
+}
+
+.top1_yellow  {
+  background-image: url('./img/top1 yellow.png');
+}
+
+.top2_yellow  {
+  background-image: url('./img/top2 yellow.png');
+}
+
+.left1_yellow  {
+  background-image: url('./img/left1 yellow.png');
+}
+
+.left2_yellow  {
+  background-image: url('./img/left2 yellow.png');
+}
+
+.down1_yellow  {
+  background-image: url('./img/down1 yellow.png');
+}
+
+.down2_yellow  {
+  background-image: url('./img/down2 yellow.png');
 }
 
 html { 

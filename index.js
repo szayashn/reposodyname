@@ -15,7 +15,6 @@ setInterval(function () {
             n4: Math.random() * 10 + 10
         }
     })
-    console.log("TEst");
 },3000);
 app.get('/', function (req, res) {
     res.render('index.ejs');
