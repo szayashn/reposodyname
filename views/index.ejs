@@ -35,11 +35,11 @@
       <div class="bets">
         <form action="/" id="bet_form">
           <div class="row">
-            <span>Money:</span><input type="number" disabled class="available_money" id="bet_current_funds" value="100">
+            <span>Money:</span><input type="number"  disabled class="available_money" id="bet_current_funds" value="100">
           </div>
           <div class="row">
             <span>Bet amount:</span>
-            <input type="number" id="bet_amount">
+            <input type="number" min="1" max="100000" id="bet_amount">
           </div>
           <div class="row">
             <span>Choose Ninja:</span>
@@ -100,7 +100,7 @@
 
     // append the chat text message
     socket.on('chat_message', function (msg) {
-      $('#messages').append($('<li>').html(msg));
+      $('#messages').prepend($('<li>').html(msg));
 
     });
 
@@ -124,7 +124,7 @@
       let total = [0, 0, 0, 0];
       $('#race_table tbody').empty();
       for (let user of all_users) {
-        $('#odds').append($('<tr>').html('<td>' + user.name + '</td><td>' + user.horse_1 + '</td><td>' + user.horse_2 + '</td><td>' + user.horse_3 + '</td><td>' + user.horse_4 + '</td>'));
+        $('#odds').prepend($('<tr>').html('<td>' + user.name + '</td><td>' + user.horse_1 + '</td><td>' + user.horse_2 + '</td><td>' + user.horse_3 + '</td><td>' + user.horse_4 + '</td>'));
       }
     }
     socket.on('test', function (data) {
