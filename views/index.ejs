@@ -45,10 +45,10 @@
           <div class="row">
             <span>Choose Ninja:</span>
             <select id="bet_horse">
-              <option value="horse_1">Ninja 1</option>
-              <option value="horse_2">Ninja 2</option>
-              <option value="horse_3">Ninja 3</option>
-              <option value="horse_4">Ninja 4</option>
+              <option value="horse_1">Yellow</option>
+              <option value="horse_2">Blue</option>
+              <option value="horse_3">Green</option>
+              <option value="horse_4">Red</option>
             </select>
             <div class="row">
               <button>Make a bet</button>
@@ -61,10 +61,10 @@
         <thead>
           <tr>
             <td>Player</td>
-            <td>Ninja 1</td>
-            <td>Ninja 2</td>
-            <td>Ninja 3</td>
-            <td>Ninja 4</td>
+            <td>Yellow</td>
+            <td>Blue</td>
+            <td>Green</td>
+            <td>Red</td>
           </tr>
         </thead>
         <tbody id="odds">
@@ -154,7 +154,6 @@
     function startApp(){
       socket.emit('startRace');
     }
-
 
   </script>
 </body>

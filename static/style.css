@@ -95,7 +95,7 @@ select{
 
 .race_result {
   display: inline-block;
-  width: 48%;
+  width: 47% !important;
   height: 90%;
   margin: 1%;
   vertical-align: top;
@@ -252,6 +252,7 @@ html {
 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 border-collapse: collapse;
 width: 100%;
+table-layout:fixed;
 }
 
 #race_table td, #race_table th {
