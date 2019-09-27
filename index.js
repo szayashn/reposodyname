@@ -6,10 +6,17 @@ app.use(express.static(__dirname + "/static"));
 //create list of users
 let list_of_users = []
 
-setInterval(function(){
-    io.emit('test', 'test');
-},1000);
-
+setInterval(function () {
+    io.emit('setTheSpeed', {
+        ninjas: {
+            n: Math.random() * 10 + 10,
+            n2: Math.random() * 10 + 10,
+            n3: Math.random() * 10 + 10,
+            n4: Math.random() * 10 + 10
+        }
+    })
+    console.log("TEst");
+},3000);
 app.get('/', function (req, res) {
     res.render('index.ejs');
 });
@@ -43,18 +50,27 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('chat_message', function (message) {
         io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
-        
+
     });
     socket.on('incoming_bet', function (data) {
-        for (let u of list_of_users){
-            if (u.id == socket.id){
+        for (let u of list_of_users) {
+            if (u.id == socket.id) {
                 u[data.selected_horse] += parseInt(data.bet_amount);
                 u.balance -= parseInt(data.bet_amount);
             }
         }
         io.emit('change_bet_table', list_of_users);
     });
-
+    socket.on('startRace', function () {
+        io.emit('startTheRace', {
+            ninjas: {
+                n: Math.random() * 10 + 10,
+                n2: Math.random() * 10 + 10,
+                n3: Math.random() * 10 + 10,
+                n4: Math.random() * 10 + 10
+            }
+        });
+    });
 });
 const server = http.listen(8000, function () {
     console.log('listening on port 8000');
